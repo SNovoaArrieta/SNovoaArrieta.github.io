@@ -1,151 +1,429 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio - Sofía Novoa</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sofía Novoa | Junior Full-Stack Developer</title>
+  <meta name="description" content="Portafolio de Sofía Novoa, desarrolladora Full-Stack Junior con enfoque backend. JavaScript, TypeScript, React, Node.js, SQL y construcción de productos digitales.">
+  <meta name="theme-color" content="#0f172a">
+  <meta property="og:title" content="Sofía Novoa | Junior Full-Stack Developer">
+  <meta property="og:description" content="Backend, APIs, SQL y productos web pensados para resolver problemas reales.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snovoaarrieta.github.io/">
   <style>
-    * {
-      margin: 0; padding: 0;
-      box-sizing: border-box;
-      font-family: 'Arial', sans-serif;
+    :root{
+      --bg:#f8fafc;
+      --surface:#ffffff;
+      --surface-2:#f1f5f9;
+      --text:#0f172a;
+      --muted:#526071;
+      --line:#dce3eb;
+      --accent:#2563eb;
+      --accent-soft:#eaf1ff;
+      --dark:#0b1220;
+      --radius:22px;
+      --shadow:0 18px 55px rgba(15,23,42,.08);
+      --max:1160px;
     }
-
-    body {
-      background: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
     }
-
-    header {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
+    a{color:inherit}
+    img{display:block;max-width:100%}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .skip{position:absolute;left:-9999px}
+    .skip:focus{left:20px;top:20px;z-index:99;background:white;padding:10px 14px;border-radius:10px}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      background:rgba(248,250,252,.88);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(220,227,235,.78);
     }
-
-    header h1 {
-      font-size: 2.5rem;
+    .nav-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-weight:850;letter-spacing:-.03em;text-decoration:none;font-size:1.08rem}
+    .brand span{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:24px}
+    .nav-links a{text-decoration:none;color:var(--muted);font-size:.94rem;font-weight:650}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta{padding:10px 15px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text)!important}
+    .hero{padding:78px 0 62px}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:70px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      padding:8px 12px;border:1px solid #cddbf8;border-radius:999px;
+      background:var(--accent-soft);color:#174ea6;font-size:.84rem;font-weight:750;
     }
-
-    header p {
-      font-size: 1.2rem;
-      margin-top: .5rem;
+    .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.13)}
+    h1,h2,h3,p{margin-top:0}
+    h1{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(3.25rem,7vw,6.6rem);
+      line-height:.94;letter-spacing:-.065em;
+      margin:24px 0 24px;
+      max-width:850px;
     }
-
-    nav {
-      background: #444;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 1rem;
+    .role{font-size:clamp(1.25rem,2.2vw,1.7rem);font-weight:760;letter-spacing:-.025em;margin-bottom:14px}
+    .lead{font-size:1.08rem;color:var(--muted);max-width:690px;margin-bottom:28px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      min-height:48px;display:inline-flex;align-items:center;justify-content:center;
+      padding:0 18px;border-radius:12px;text-decoration:none;font-weight:750;
+      border:1px solid var(--line);background:var(--surface);transition:.2s ease;
     }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(15,23,42,.08)}
+    .btn-primary{background:var(--dark);border-color:var(--dark);color:white}
+    .portrait-card{position:relative;max-width:360px;margin-left:auto}
+    .portrait-frame{
+      border-radius:32px;overflow:hidden;background:#e8e4df;
+      box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.8);
     }
-
-    nav a:hover {
-      color: #00bcd4;
+    .portrait-frame img{width:100%;aspect-ratio:4/5;object-fit:cover}
+    .portrait-note{
+      position:absolute;left:-36px;bottom:28px;background:rgba(255,255,255,.96);
+      border:1px solid var(--line);border-radius:16px;padding:12px 15px;box-shadow:0 14px 40px rgba(15,23,42,.11);
+      font-size:.84rem;color:var(--muted)
     }
-
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
+    .portrait-note strong{display:block;color:var(--text);font-size:.94rem}
+    .quick{padding:0 0 74px}
+    .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:18px;background:var(--surface);overflow:hidden}
+    .quick-item{padding:20px 22px;border-right:1px solid var(--line)}
+    .quick-item:last-child{border-right:0}
+    .quick-item strong{display:block;font-size:.96rem;margin-bottom:3px}
+    .quick-item span{font-size:.88rem;color:var(--muted)}
+    section{padding:82px 0}
+    .section-head{display:grid;grid-template-columns:.62fr 1.38fr;gap:50px;margin-bottom:40px;align-items:start}
+    .kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:850;margin-bottom:10px}
+    h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.04;letter-spacing:-.045em;margin-bottom:0}
+    .section-copy{color:var(--muted);font-size:1.05rem;max-width:720px}
+    .about{background:var(--surface)}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+    .card.soft{background:var(--surface-2)}
+    .card h3{font-size:1.14rem;margin-bottom:12px}
+    .card p{color:var(--muted);margin-bottom:0}
+    .principles{display:grid;gap:13px;margin-top:18px}
+    .principle{display:flex;gap:12px;align-items:flex-start;color:var(--muted)}
+    .principle b{color:var(--text)}
+    .num{flex:0 0 30px;height:30px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:.78rem;font-weight:850}
+    .stack{background:var(--dark);color:white}
+    .stack .section-copy{color:#aab6c7}
+    .stack .kicker{color:#7fb0ff}
+    .stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .stack-card{border:1px solid #263247;border-radius:18px;padding:22px;background:#111a2a}
+    .stack-card h3{margin-bottom:12px;font-size:1rem}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{border:1px solid #334155;color:#cbd5e1;border-radius:999px;padding:7px 10px;font-size:.82rem;background:#0f172a}
+    .projects{background:var(--bg)}
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .project{
+      min-height:100%;display:flex;flex-direction:column;background:var(--surface);
+      border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 10px 35px rgba(15,23,42,.04)
     }
-
-    h2 {
-      margin-bottom: 1rem;
-      color: #00bcd4;
+    .project-top{padding:28px 28px 22px;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#f8fafc,#edf3ff)}
+    .project:nth-child(2) .project-top{background:linear-gradient(135deg,#f8fafc,#eefcf6)}
+    .project:nth-child(3) .project-top{background:linear-gradient(135deg,#fbfaf7,#fff6e8)}
+    .project:nth-child(4) .project-top{background:linear-gradient(135deg,#f7f8fc,#f3efff)}
+    .project-index{font-family:Georgia,serif;font-size:2.6rem;color:#b7c5d8;line-height:1}
+    .status{font-size:.76rem;font-weight:800;color:#334155;padding:7px 10px;border:1px solid #d7dee8;border-radius:999px;background:rgba(255,255,255,.72);align-self:flex-start}
+    .project-body{padding:26px 28px 28px;display:flex;flex-direction:column;flex:1}
+    .project h3{font-size:1.45rem;letter-spacing:-.025em;margin-bottom:9px}
+    .project p{color:var(--muted);font-size:.95rem}
+    .project-points{margin:4px 0 22px;padding-left:19px;color:var(--muted);font-size:.9rem}
+    .project-points li+li{margin-top:5px}
+    .project-tech{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;margin-bottom:18px}
+    .project-tech span{background:var(--surface-2);border-radius:8px;padding:6px 8px;font-size:.76rem;color:#435166}
+    .project-links{display:flex;gap:15px;flex-wrap:wrap}
+    .project-links a{font-weight:780;font-size:.9rem;text-decoration:none;color:var(--accent)}
+    .project-links a:hover{text-decoration:underline}
+    .path{background:var(--surface)}
+    .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .timeline .card{padding:24px}
+    .timeline small{display:block;color:var(--accent);font-weight:800;margin-bottom:8px}
+    .timeline h3{font-size:1.02rem}
+    .timeline p{font-size:.9rem}
+    .contact{padding:86px 0 92px}
+    .contact-box{
+      background:var(--dark);color:white;border-radius:30px;padding:clamp(30px,6vw,66px);
+      display:grid;grid-template-columns:1.25fr .75fr;gap:50px;align-items:end;
     }
-
-    .proyectos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+    .contact-box h2{font-family:Georgia,serif;font-size:clamp(2.6rem,5vw,4.5rem);max-width:720px}
+    .contact-box p{color:#aab6c7;max-width:620px}
+    .contact-links{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+    .contact-links a{background:white;color:var(--dark);border-radius:12px;padding:14px 16px;text-decoration:none;font-weight:800;text-align:center}
+    footer{border-top:1px solid var(--line);padding:24px 0 38px;color:var(--muted);font-size:.86rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media(max-width:900px){
+      .hero-grid,.section-head,.about-grid,.contact-box{grid-template-columns:1fr}
+      .hero{padding-top:58px}
+      .portrait-card{margin:20px auto 0}
+      .portrait-note{left:14px}
+      .quick-grid{grid-template-columns:1fr 1fr}
+      .quick-item:nth-child(2){border-right:0}
+      .quick-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .stack-grid,.timeline{grid-template-columns:1fr 1fr}
+      .contact-box{align-items:start}
     }
-
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: .8rem;
-    }
-
-    footer {
-      text-align: center;
-      background: #222;
-      color: #fff;
-
-      padding: 1rem;
-      margin-top: 2rem;
+    @media(max-width:650px){
+      .wrap{width:min(calc(100% - 28px),var(--max))}
+      .nav-links a:not(.nav-cta){display:none}
+      .hero{padding-bottom:44px}
+      h1{font-size:3.45rem}
+      .quick-grid,.project-grid,.stack-grid,.timeline{grid-template-columns:1fr}
+      .quick-item{border-right:0;border-bottom:1px solid var(--line)!important}
+      .quick-item:last-child{border-bottom:0!important}
+      section{padding:64px 0}
+      .project-top{min-height:150px}
+      .portrait-card{max-width:320px}
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Sofía Novoa</h1>
-    <p>Desarrolladora Web | Diseñadora | Creativa</p>
+  <a class="skip" href="#contenido">Ir al contenido</a>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#inicio">Sofía<span>.</span></a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#stack">Stack</a>
+        <a href="#proyectos">Proyectos</a>
+        <a class="nav-cta" href="#contacto">Contacto</a>
+      </nav>
+    </div>
   </header>
 
-  <nav>
-    <a href="#sobre-mi">Sobre mí</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <section id="sobre-mi">
-    <h2>Sobre mí</h2>
-    <p>
-      ¡Hola! Soy Sofía, una apasionada por el desarrollo web y el diseño.
-      Me gusta crear soluciones digitales que sean simples, funcionales y bonitas.
-    </p>
-  </section>
-
-  <section id="proyectos">
-    <h2>Proyectos</h2>
-    <div class="proyectos">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Proyecto 1">
-        <h3>Proyecto 1</h3>
-        <p>Descripción corta del proyecto.</p>
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Disponible para oportunidades junior</div>
+          <h1>Sofía Novoa</h1>
+          <p class="role">Desarrolladora Full-Stack Junior · enfoque Backend</p>
+          <p class="lead">
+            Construyo aplicaciones web con énfasis en lógica de negocio, APIs, bases de datos y código mantenible.
+            Me interesa convertir requisitos reales en productos claros, funcionales y técnicamente sólidos.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#proyectos">Ver proyectos →</a>
+            <a class="btn" href="https://github.com/SNovoaArrieta" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/sofia-novoa-arrieta-195561378" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+        <div class="portrait-card">
+          <div class="portrait-frame">
+            <img src="data:image/jpeg;base64,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" alt="Retrato profesional de Sofía Novoa" width="360" height="450">
+          </div>
+          <div class="portrait-note"><strong>Colombia</strong>Remoto / híbrido</div>
+        </div>
       </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Proyecto 2">
-        <h3>Proyecto 2</h3>
-        <p>Descripción corta del proyecto.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Proyecto 3">
-        <h3>Proyecto 3</h3>
-        <p>Descripción corta del proyecto.</p>
+    </section>
+
+    <div class="quick">
+      <div class="wrap quick-grid">
+        <div class="quick-item"><strong>JavaScript / TypeScript</strong><span>Aplicaciones web y backend</span></div>
+        <div class="quick-item"><strong>React</strong><span>Interfaces funcionales y responsivas</span></div>
+        <div class="quick-item"><strong>SQL</strong><span>MySQL · PostgreSQL · modelado</span></div>
+        <div class="quick-item"><strong>APIs & Backend</strong><span>Node.js · Express · Prisma</span></div>
       </div>
     </div>
-  </section>
 
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>📧 sofiarrietac16@gmail.com</p>
-    <p>💼 LinkedIn: linkedin.com/in/sofia</p>
-  </section>
+    <section class="about" id="sobre-mi">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Perfil</div>
+            <h2>Menos adorno. Más evidencia de lo que sé construir.</h2>
+          </div>
+          <p class="section-copy">
+            Mi perfil está orientado al desarrollo de software y, especialmente, al backend. Disfruto modelar datos,
+            implementar reglas de negocio, trabajar con APIs y mantener una base de código organizada. También puedo
+            moverme en frontend para entregar experiencias completas de principio a fin.
+          </p>
+        </div>
+        <div class="about-grid">
+          <article class="card">
+            <h3>Cómo trabajo</h3>
+            <p>
+              Antes de escribir código intento entender el problema, separar responsabilidades y definir qué debe
+              quedar demostrado en el producto. Prefiero una solución sencilla y verificable antes que complejidad innecesaria.
+            </p>
+            <div class="principles">
+              <div class="principle"><span class="num">01</span><div><b>Diseño con intención.</b> La interfaz debe ayudar a entender el producto, no competir con él.</div></div>
+              <div class="principle"><span class="num">02</span><div><b>Backend mantenible.</b> Reglas claras, validación, persistencia y estructura comprensible.</div></div>
+              <div class="principle"><span class="num">03</span><div><b>Iteración real.</b> Construyo, pruebo, corrijo y documento decisiones importantes.</div></div>
+            </div>
+          </article>
+          <article class="card soft">
+            <h3>Lo que busco ahora</h3>
+            <p>
+              Una primera oportunidad profesional en desarrollo de software donde pueda aportar como perfil junior,
+              fortalecer backend y arquitectura, y seguir creciendo con revisión de código, producto real y trabajo en equipo.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack" id="stack">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Tecnologías</div>
+            <h2>Stack con el que trabajo.</h2>
+          </div>
+          <p class="section-copy">
+            No presento una lista de “dominio experto”. Estas son las tecnologías que ya he usado para construir proyectos
+            y que sigo profundizando en práctica.
+          </p>
+        </div>
+        <div class="stack-grid">
+          <article class="stack-card"><h3>Frontend</h3><div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Tailwind</span></div></article>
+          <article class="stack-card"><h3>Backend</h3><div class="chips"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Java</span><span class="chip">REST APIs</span><span class="chip">Prisma</span></div></article>
+          <article class="stack-card"><h3>Datos</h3><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Firebase</span><span class="chip">SQL</span><span class="chip">Modelado</span></div></article>
+          <article class="stack-card"><h3>Tooling</h3><div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Vite</span><span class="chip">ESLint</span><span class="chip">Prettier</span><span class="chip">Vitest</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="proyectos">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Portafolio</div>
+            <h2>Proyectos que sí cuentan una historia técnica.</h2>
+          </div>
+          <p class="section-copy">
+            Seleccioné proyectos que muestran distintas capas de mi perfil: backend y arquitectura, lógica de negocio,
+            persistencia, experiencia web y diseño de bases de datos.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-top"><span class="status">Internal Alpha · En desarrollo</span><span class="project-index">01</span></div>
+            <div class="project-body">
+              <h3>ClipAI SaaS</h3>
+              <p>
+                Plataforma SaaS orientada a transformar contenido de formato largo en una base de trabajo para clips cortos.
+                La fase actual se concentra en una fundación backend seria antes de integrar procesamiento con IA.
+              </p>
+              <ul class="project-points">
+                <li>API autenticada para Projects, Sources, uploads y attestations.</li>
+                <li>Persistencia PostgreSQL/Prisma y validación de archivos multimedia con ffprobe.</li>
+                <li>Documentación de arquitectura, seguridad, datos y decisiones técnicas.</li>
+              </ul>
+              <div class="project-tech"><span>TypeScript</span><span>Express</span><span>PostgreSQL</span><span>Prisma</span><span>Vitest</span><span>CI</span></div>
+              <div class="project-links"><a href="https://github.com/SNovoaArrieta/clipai-saas" target="_blank" rel="noopener noreferrer">Ver repositorio →</a></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><span class="status">Proyecto web funcional</span><span class="project-index">02</span></div>
+            <div class="project-body">
+              <h3>ACME Bank</h3>
+              <p>
+                Portal transaccional que simula operaciones bancarias esenciales y flujos de autogestión, con persistencia
+                en Firebase y validación de formularios.
+              </p>
+              <ul class="project-points">
+                <li>Registro, login y recuperación de contraseña.</li>
+                <li>Consignaciones, retiros, pagos, extractos y certificados.</li>
+                <li>Dashboard responsivo con persistencia de usuarios y transacciones.</li>
+              </ul>
+              <div class="project-tech"><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Firebase</span><span>Responsive</span></div>
+              <div class="project-links"><a href="https://github.com/SNovoaArrieta/ProyectoAcmebank_JavaScript_NovoaSofia_MantillaBrayan" target="_blank" rel="noopener noreferrer">Ver repositorio →</a></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><span class="status">Diseño de datos</span><span class="project-index">03</span></div>
+            <div class="project-body">
+              <h3>Sistema de Gestión Agrícola</h3>
+              <p>
+                Base de datos para una operación agrícola que centraliza producción, inventario, compras, ventas,
+                recursos humanos y mantenimiento de maquinaria.
+              </p>
+              <ul class="project-points">
+                <li>Modelo relacional orientado a procesos reales de una finca.</li>
+                <li>Scripts de estructura, carga de datos y consultas.</li>
+                <li>Consultas para apoyar control operativo y reportes.</li>
+              </ul>
+              <div class="project-tech"><span>MySQL</span><span>SQL</span><span>Modelado relacional</span><span>Consultas</span></div>
+              <div class="project-links"><a href="https://github.com/SNovoaArrieta/proyectoSQL" target="_blank" rel="noopener noreferrer">Ver repositorio →</a></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><span class="status">Producto propio · En evolución</span><span class="project-index">04</span></div>
+            <div class="project-body">
+              <h3>NORYVEN Web</h3>
+              <p>
+                Fundación técnica para la presencia web de una empresa tecnológica enfocada en software, automatización
+                e inteligencia artificial aplicada. El repositorio de producto se mantiene privado.
+              </p>
+              <ul class="project-points">
+                <li>Base con Next.js App Router, React y TypeScript estricto.</li>
+                <li>Tailwind CSS, linting y estructura preparada para crecer.</li>
+                <li>Enfoque futuro en presentación corporativa y captación de leads.</li>
+              </ul>
+              <div class="project-tech"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind</span></div>
+              <div class="project-links"><a href="mailto:sofiarrietac16@gmail.com?subject=Quiero%20conocer%20NORYVEN">Conocer más →</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="path" id="trayectoria">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Formación</div>
+            <h2>Una ruta construida entre informática y software.</h2>
+          </div>
+          <p class="section-copy">
+            Mi formación combina fundamentos técnicos, estudio universitario y práctica intensiva de programación.
+            El objetivo actual es llevar esa base a un entorno profesional de desarrollo.
+          </p>
+        </div>
+        <div class="timeline">
+          <article class="card"><small>Base técnica</small><h3>Técnico en Sistemas</h3><p>Fundamentos de soporte, tecnología y resolución de problemas.</p></article>
+          <article class="card"><small>Formación universitaria</small><h3>Informática + Ingeniería de Software</h3><p>Continuidad académica orientada a desarrollo, datos y construcción de sistemas.</p></article>
+          <article class="card"><small>Práctica intensiva</small><h3>Bootcamp de desarrollo</h3><p>Trabajo práctico con JavaScript, Java, SQL, React, TypeScript, Git y proyectos de software.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="wrap contact-box">
+        <div>
+          <div class="kicker">Contacto</div>
+          <h2>¿Tienes una oportunidad o un proyecto donde pueda aportar?</h2>
+          <p>
+            Estoy construyendo mi carrera en desarrollo de software y abierta a roles junior, prácticas profesionales
+            y conversaciones con equipos que valoren aprendizaje, criterio técnico y ganas de construir.
+          </p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:sofiarrietac16@gmail.com">sofiarrietac16@gmail.com</a>
+          <a href="https://www.linkedin.com/in/sofia-novoa-arrieta-195561378" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/SNovoaArrieta" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Sofía Novoa - Todos los derechos reservados</p>
+    <div class="wrap footer-inner">
+      <span>© 2026 Sofía Novoa.</span>
+      <span>Diseñado para mostrar trabajo real, no métricas inventadas.</span>
+    </div>
   </footer>
 </body>
 </html>
