@@ -10,179 +10,7 @@
   <meta property="og:description" content="Backend, APIs, SQL y productos web pensados para resolver problemas reales.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://snovoaarrieta.github.io/">
-  <style>
-    :root{
-      --bg:#f8fafc;
-      --surface:#ffffff;
-      --surface-2:#f1f5f9;
-      --text:#0f172a;
-      --muted:#526071;
-      --line:#dce3eb;
-      --accent:#2563eb;
-      --accent-soft:#eaf1ff;
-      --dark:#0b1220;
-      --radius:22px;
-      --shadow:0 18px 55px rgba(15,23,42,.08);
-      --max:1160px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.65;
-      -webkit-font-smoothing:antialiased;
-    }
-    a{color:inherit}
-    img{display:block;max-width:100%}
-    .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
-    .skip{position:absolute;left:-9999px}
-    .skip:focus{left:20px;top:20px;z-index:99;background:white;padding:10px 14px;border-radius:10px}
-    .nav{
-      position:sticky;top:0;z-index:20;
-      background:rgba(248,250,252,.88);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(220,227,235,.78);
-    }
-    .nav-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{font-weight:850;letter-spacing:-.03em;text-decoration:none;font-size:1.08rem}
-    .brand span{color:var(--accent)}
-    .nav-links{display:flex;align-items:center;gap:24px}
-    .nav-links a{text-decoration:none;color:var(--muted);font-size:.94rem;font-weight:650}
-    .nav-links a:hover{color:var(--text)}
-    .nav-cta{padding:10px 15px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text)!important}
-    .hero{padding:78px 0 62px}
-    .hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:70px;align-items:center}
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:9px;
-      padding:8px 12px;border:1px solid #cddbf8;border-radius:999px;
-      background:var(--accent-soft);color:#174ea6;font-size:.84rem;font-weight:750;
-    }
-    .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.13)}
-    h1,h2,h3,p{margin-top:0}
-    h1{
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:clamp(3.25rem,7vw,6.6rem);
-      line-height:.94;letter-spacing:-.065em;
-      margin:24px 0 24px;
-      max-width:850px;
-    }
-    .role{font-size:clamp(1.25rem,2.2vw,1.7rem);font-weight:760;letter-spacing:-.025em;margin-bottom:14px}
-    .lead{font-size:1.08rem;color:var(--muted);max-width:690px;margin-bottom:28px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      min-height:48px;display:inline-flex;align-items:center;justify-content:center;
-      padding:0 18px;border-radius:12px;text-decoration:none;font-weight:750;
-      border:1px solid var(--line);background:var(--surface);transition:.2s ease;
-    }
-    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(15,23,42,.08)}
-    .btn-primary{background:var(--dark);border-color:var(--dark);color:white}
-    .portrait-card{position:relative;max-width:360px;margin-left:auto}
-    .portrait-frame{
-      border-radius:32px;overflow:hidden;background:#e8e4df;
-      box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.8);
-    }
-    .portrait-frame img{width:100%;aspect-ratio:4/5;object-fit:cover}
-    .portrait-note{
-      position:absolute;left:-36px;bottom:28px;background:rgba(255,255,255,.96);
-      border:1px solid var(--line);border-radius:16px;padding:12px 15px;box-shadow:0 14px 40px rgba(15,23,42,.11);
-      font-size:.84rem;color:var(--muted)
-    }
-    .portrait-note strong{display:block;color:var(--text);font-size:.94rem}
-    .quick{padding:0 0 74px}
-    .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:18px;background:var(--surface);overflow:hidden}
-    .quick-item{padding:20px 22px;border-right:1px solid var(--line)}
-    .quick-item:last-child{border-right:0}
-    .quick-item strong{display:block;font-size:.96rem;margin-bottom:3px}
-    .quick-item span{font-size:.88rem;color:var(--muted)}
-    section{padding:82px 0}
-    .section-head{display:grid;grid-template-columns:.62fr 1.38fr;gap:50px;margin-bottom:40px;align-items:start}
-    .kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:850;margin-bottom:10px}
-    h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.04;letter-spacing:-.045em;margin-bottom:0}
-    .section-copy{color:var(--muted);font-size:1.05rem;max-width:720px}
-    .about{background:var(--surface)}
-    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px}
-    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
-    .card.soft{background:var(--surface-2)}
-    .card h3{font-size:1.14rem;margin-bottom:12px}
-    .card p{color:var(--muted);margin-bottom:0}
-    .principles{display:grid;gap:13px;margin-top:18px}
-    .principle{display:flex;gap:12px;align-items:flex-start;color:var(--muted)}
-    .principle b{color:var(--text)}
-    .num{flex:0 0 30px;height:30px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:.78rem;font-weight:850}
-    .stack{background:var(--dark);color:white}
-    .stack .section-copy{color:#aab6c7}
-    .stack .kicker{color:#7fb0ff}
-    .stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .stack-card{border:1px solid #263247;border-radius:18px;padding:22px;background:#111a2a}
-    .stack-card h3{margin-bottom:12px;font-size:1rem}
-    .chips{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{border:1px solid #334155;color:#cbd5e1;border-radius:999px;padding:7px 10px;font-size:.82rem;background:#0f172a}
-    .projects{background:var(--bg)}
-    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-    .project{
-      min-height:100%;display:flex;flex-direction:column;background:var(--surface);
-      border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 10px 35px rgba(15,23,42,.04)
-    }
-    .project-top{padding:28px 28px 22px;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#f8fafc,#edf3ff)}
-    .project:nth-child(2) .project-top{background:linear-gradient(135deg,#f8fafc,#eefcf6)}
-    .project:nth-child(3) .project-top{background:linear-gradient(135deg,#fbfaf7,#fff6e8)}
-    .project:nth-child(4) .project-top{background:linear-gradient(135deg,#f7f8fc,#f3efff)}
-    .project-index{font-family:Georgia,serif;font-size:2.6rem;color:#b7c5d8;line-height:1}
-    .status{font-size:.76rem;font-weight:800;color:#334155;padding:7px 10px;border:1px solid #d7dee8;border-radius:999px;background:rgba(255,255,255,.72);align-self:flex-start}
-    .project-body{padding:26px 28px 28px;display:flex;flex-direction:column;flex:1}
-    .project h3{font-size:1.45rem;letter-spacing:-.025em;margin-bottom:9px}
-    .project p{color:var(--muted);font-size:.95rem}
-    .project-points{margin:4px 0 22px;padding-left:19px;color:var(--muted);font-size:.9rem}
-    .project-points li+li{margin-top:5px}
-    .project-tech{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;margin-bottom:18px}
-    .project-tech span{background:var(--surface-2);border-radius:8px;padding:6px 8px;font-size:.76rem;color:#435166}
-    .project-links{display:flex;gap:15px;flex-wrap:wrap}
-    .project-links a{font-weight:780;font-size:.9rem;text-decoration:none;color:var(--accent)}
-    .project-links a:hover{text-decoration:underline}
-    .path{background:var(--surface)}
-    .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .timeline .card{padding:24px}
-    .timeline small{display:block;color:var(--accent);font-weight:800;margin-bottom:8px}
-    .timeline h3{font-size:1.02rem}
-    .timeline p{font-size:.9rem}
-    .contact{padding:86px 0 92px}
-    .contact-box{
-      background:var(--dark);color:white;border-radius:30px;padding:clamp(30px,6vw,66px);
-      display:grid;grid-template-columns:1.25fr .75fr;gap:50px;align-items:end;
-    }
-    .contact-box h2{font-family:Georgia,serif;font-size:clamp(2.6rem,5vw,4.5rem);max-width:720px}
-    .contact-box p{color:#aab6c7;max-width:620px}
-    .contact-links{display:flex;flex-direction:column;gap:10px;align-items:stretch}
-    .contact-links a{background:white;color:var(--dark);border-radius:12px;padding:14px 16px;text-decoration:none;font-weight:800;text-align:center}
-    footer{border-top:1px solid var(--line);padding:24px 0 38px;color:var(--muted);font-size:.86rem}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    @media(max-width:900px){
-      .hero-grid,.section-head,.about-grid,.contact-box{grid-template-columns:1fr}
-      .hero{padding-top:58px}
-      .portrait-card{margin:20px auto 0}
-      .portrait-note{left:14px}
-      .quick-grid{grid-template-columns:1fr 1fr}
-      .quick-item:nth-child(2){border-right:0}
-      .quick-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
-      .stack-grid,.timeline{grid-template-columns:1fr 1fr}
-      .contact-box{align-items:start}
-    }
-    @media(max-width:650px){
-      .wrap{width:min(calc(100% - 28px),var(--max))}
-      .nav-links a:not(.nav-cta){display:none}
-      .hero{padding-bottom:44px}
-      h1{font-size:3.45rem}
-      .quick-grid,.project-grid,.stack-grid,.timeline{grid-template-columns:1fr}
-      .quick-item{border-right:0;border-bottom:1px solid var(--line)!important}
-      .quick-item:last-child{border-bottom:0!important}
-      section{padding:64px 0}
-      .project-top{min-height:150px}
-      .portrait-card{max-width:320px}
-    }
-  </style>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <a class="skip" href="#contenido">Ir al contenido</a>
@@ -217,7 +45,7 @@
         </div>
         <div class="portrait-card">
           <div class="portrait-frame">
-            <img src="assets/sofia-portfolio.jpg" alt="Retrato profesional de Sofía Novoa" width="360" height="450">
+            <img data-portrait src="./assets/sofia-profile.png" alt="Retrato profesional de Sofía Novoa" width="360" height="450">
           </div>
           <div class="portrait-note"><strong>Colombia</strong>Remoto / híbrido</div>
         </div>
@@ -308,7 +136,10 @@
 
         <div class="project-grid">
           <article class="project">
-            <div class="project-top"><span class="status">Internal Alpha · En desarrollo</span><span class="project-index">01</span></div>
+            <div class="project-top">
+              <img src="./assets/projects/clipai.webp" alt="Flujo visual de una plataforma que transforma videos largos en clips cortos" loading="lazy" width="1200" height="676">
+              <span class="status">Internal Alpha · En desarrollo</span><span class="project-index">01</span>
+            </div>
             <div class="project-body">
               <h3>ClipAI SaaS</h3>
               <p>
@@ -326,7 +157,10 @@
           </article>
 
           <article class="project">
-            <div class="project-top"><span class="status">Proyecto web funcional</span><span class="project-index">02</span></div>
+            <div class="project-top">
+              <img src="./assets/projects/acme-bank.webp" alt="Panel digital de banca con transacciones, gráficas y elementos de seguridad" loading="lazy" width="1200" height="676">
+              <span class="status">Proyecto web funcional</span><span class="project-index">02</span>
+            </div>
             <div class="project-body">
               <h3>ACME Bank</h3>
               <p>
@@ -344,7 +178,10 @@
           </article>
 
           <article class="project">
-            <div class="project-top"><span class="status">Diseño de datos</span><span class="project-index">03</span></div>
+            <div class="project-top">
+              <img src="./assets/projects/gestion-agricola.webp" alt="Sistema agrícola conectado con cultivos, inventario, maquinaria y datos" loading="lazy" width="1200" height="676">
+              <span class="status">Diseño de datos</span><span class="project-index">03</span>
+            </div>
             <div class="project-body">
               <h3>Sistema de Gestión Agrícola</h3>
               <p>
@@ -362,7 +199,10 @@
           </article>
 
           <article class="project">
-            <div class="project-top"><span class="status">Producto propio · En evolución</span><span class="project-index">04</span></div>
+            <div class="project-top">
+              <img src="./assets/projects/noryven.webp" alt="Ecosistema tecnológico de software, automatización, nube e inteligencia artificial" loading="lazy" width="1200" height="676">
+              <span class="status">Producto propio · En evolución</span><span class="project-index">04</span>
+            </div>
             <div class="project-body">
               <h3>NORYVEN Web</h3>
               <p>
@@ -429,5 +269,6 @@
       <span>Diseñado para mostrar trabajo real, no métricas inventadas.</span>
     </div>
   </footer>
+  <script src="./scripts/main.js" defer></script>
 </body>
 </html>

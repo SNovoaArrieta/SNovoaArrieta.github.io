@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="title description">
+  <title id="title">Sofía Novoa</title>
+  <desc id="description">Imagen de respaldo del portafolio de Sofía Novoa</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eaf1ff"/>
+      <stop offset="1" stop-color="#dce7f8"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="900" fill="url(#background)"/>
+  <circle cx="360" cy="340" r="150" fill="#b7c9e5"/>
+  <path d="M105 900c20-230 120-350 255-350s235 120 255 350" fill="#91abd2"/>
+  <circle cx="600" cy="120" r="42" fill="#2563eb" opacity=".13"/>
+  <text x="360" y="785" text-anchor="middle" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="700">SN</text>
+</svg>
